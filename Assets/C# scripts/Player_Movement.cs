@@ -2,61 +2,74 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     [SerializeField] private Animator animator;
-
-    int moving = Animator.StringToHash("x");
-
-    int jump = Animator.StringToHash("jump");
-
     [SerializeField] private float speed = 5.0f;
-
-    private float moveInput;
-
     [SerializeField] private float verticalSpeed = 1.0f;
-
-    bool resetJump=false;
-
     [SerializeField] private float jumpForce = 10.0f;
+
+    private Rigidbody rb;
+    private bool resetJump = false;
+
+    private static readonly int Moving = Animator.StringToHash("x");
+    private static readonly int Jump = Animator.StringToHash("jump");
+
     void Start()
     {
-        resetJump = false;
+        rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        rb.useGravity = false; 
     }
-   
-    // Update is called once per frame
+
     void Update()
     {
+        
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * speed * Time.deltaTime;
-        transform.Translate(movement, Space.Self);
+        Vector3 moveDirection = (transform.right * horizontalInput + transform.forward * verticalInput).normalized;
+        rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
 
-        moveInput = (horizontalInput != 0 || verticalInput != 0) ? 1f : 0f;
+        float moveInput = (horizontalInput != 0 || verticalInput != 0) ? 1f : 0f;
+        animator.SetFloat(Moving, Mathf.Lerp(animator.GetFloat(Moving), moveInput, Time.deltaTime * 4.5f));
 
-        float currentMove = animator.GetFloat(moving);
-        animator.SetFloat(moving, Mathf.Lerp(currentMove, moveInput, Time.deltaTime * 4.5f));
-
-        float X = verticalSpeed * Input.GetAxis("Mouse X");
-        transform.Rotate(0, X, 0);
-
-        if(Input.GetButton("Jump") && resetJump==false)
+        
+        if (Input.GetButtonDown("Jump") && !resetJump)
         {
-            
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.linearVelocity += -Physics.gravity.normalized * jumpForce;
             resetJump = true;
-            animator.SetBool(jump, resetJump);
+            animator.SetBool(Jump, true);
         }
+
+        
+
+        
+        // float mouseX = Input.GetAxis("Mouse X");
+        // transform.Rotate(Vector3.up, mouseX);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void FixedUpdate()
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Default") || other.CompareTag("Ground"))
+        
+        rb.AddForce(Physics.gravity, ForceMode.Acceleration);
+
+        
+        AlignWithGravity();
+    }
+
+    private void AlignWithGravity()
+    {
+        
+        Vector3 gravityUp = -Physics.gravity.normalized;
+        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, gravityUp);
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 5f));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Default") || collision.gameObject.CompareTag("Ground"))
         {
             resetJump = false;
-            animator.SetBool(jump, resetJump);
+            animator.SetBool(Jump, false);
         }
     }
 }
