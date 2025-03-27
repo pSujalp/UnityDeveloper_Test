@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 194506412}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2733,7 +2733,7 @@ GameObject:
   - component: {fileID: 780541852}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3293,7 +3293,7 @@ GameObject:
   - component: {fileID: 967953312}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4308,7 +4308,7 @@ GameObject:
   - component: {fileID: 1151311461}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4618,7 +4618,7 @@ GameObject:
   - component: {fileID: 1233293752}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5922,13 +5922,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1628940704}
+  - component: {fileID: 1628940705}
   m_Layer: 0
   m_Name: Exo Gray_Holo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1628940704
 Transform:
   m_ObjectHideFlags: 0
@@ -5937,9 +5938,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628940703}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.641, y: 0.23, z: 0.17}
-  m_LocalScale: {x: 1.3094, y: 1.3277316, z: 1.3094}
+  m_LocalRotation: {x: -0, y: -0.06510314, z: -0, w: -0.9978786}
+  m_LocalPosition: {x: 0.0716184, y: 0, z: 0.41670945}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 367291212}
@@ -5951,8 +5952,30 @@ Transform:
   - {fileID: 1441105150}
   - {fileID: 1515248308}
   - {fileID: 452349476}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_Father: {fileID: 543450653259175915}
+  m_LocalEulerAnglesHint: {x: 0, y: 367.466, z: 0}
+--- !u!95 &1628940705
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628940703}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6f59cc2b1bdb3f68fae67016a927e881, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1645246335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5967,7 +5990,7 @@ GameObject:
   - component: {fileID: 1645246336}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6734,7 +6757,7 @@ GameObject:
   - component: {fileID: 1893096421}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6875,7 +6898,7 @@ GameObject:
   - component: {fileID: 1934019760}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7470,6 +7493,7 @@ Transform:
   - {fileID: 1858851226964351111}
   - {fileID: 9012584597696256345}
   - {fileID: 1674257186921248195}
+  - {fileID: 1628940704}
   - {fileID: 5465940246962763647}
   - {fileID: 1060803226}
   m_Father: {fileID: 0}
@@ -12659,4 +12683,3 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 909295232}
-  - {fileID: 1628940704}

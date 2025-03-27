@@ -53,7 +53,7 @@ public class Player_Movement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Default"))
+        if(other.gameObject.layer == LayerMask.NameToLayer("Default") || other.CompareTag("Ground"))
         {
             resetJump = false;
             animator.SetBool(jump, resetJump);
