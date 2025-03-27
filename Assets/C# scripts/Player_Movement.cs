@@ -8,17 +8,22 @@ public class Player_Movement : MonoBehaviour
 
     int moving = Animator.StringToHash("x");
 
+    int jump = Animator.StringToHash("jump");
+
     [SerializeField] private float speed = 5.0f;
 
     private float moveInput;
 
     [SerializeField] private float verticalSpeed = 1.0f;
 
+    bool resetJump=false;
+
+    [SerializeField] private float jumpForce = 10.0f;
     void Start()
     {
+        resetJump = false;
         animator = GetComponent<Animator>();
     }
-
    
     // Update is called once per frame
     void Update()
@@ -36,5 +41,22 @@ public class Player_Movement : MonoBehaviour
 
         float X = verticalSpeed * Input.GetAxis("Mouse X");
         transform.Rotate(0, X, 0);
+
+        if(Input.GetButton("Jump") && resetJump==false)
+        {
+            
+            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            resetJump = true;
+            animator.SetBool(jump, resetJump);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Default"))
+        {
+            resetJump = false;
+            animator.SetBool(jump, resetJump);
+        }
     }
 }
