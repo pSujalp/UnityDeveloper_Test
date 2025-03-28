@@ -7,6 +7,9 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private float rotationSpeed = 2.0f; 
 
+    [SerializeField] GameObject camera;
+
+
     private Rigidbody rb;
     private bool resetJump = false;
 
@@ -25,11 +28,14 @@ public class Player_Movement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         float mouseX = Input.GetAxis("Mouse X");
-
+        float mouseY = Input.GetAxis("Mouse Y");
         
         transform.Rotate(Vector3.up, mouseX * rotationSpeed);
+        Vector3 currentRotation = camera.transform.localEulerAngles;
+        if (currentRotation.x > 180) currentRotation.x -= 360; 
+        float newRotationX = Mathf.Clamp(currentRotation.x - mouseY * rotationSpeed, -19.5f, 25f);
+        camera.transform.localEulerAngles = new Vector3(newRotationX, currentRotation.y, currentRotation.z);
 
-        
         Vector3 moveDirection = (transform.right * horizontalInput + transform.forward * verticalInput).normalized;
         rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
 
@@ -42,6 +48,7 @@ public class Player_Movement : MonoBehaviour
             resetJump = true;
             animator.SetBool(Jump, true);
         }
+       
     }
 
     void FixedUpdate()
@@ -54,7 +61,7 @@ public class Player_Movement : MonoBehaviour
     {
         Vector3 gravityUp = -Physics.gravity.normalized;
         Quaternion targetRotation = Quaternion.LookRotation(transform.forward, gravityUp);
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 5f));
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * 6.5f));
     }
 
     private void OnCollisionEnter(Collision collision)
