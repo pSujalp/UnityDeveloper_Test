@@ -3473,7 +3473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed8d920844dc288fa357ea932e23535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 10000
+  rotationSpeed: 25
 --- !u!4 &845533526
 Transform:
   m_ObjectHideFlags: 0
@@ -3482,7 +3482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845533524}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.017173203, z: -0, w: 0.99985254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5096829, y: -3.2713954, z: -10.489761}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3490,7 +3490,7 @@ Transform:
   - {fileID: 543450653259175915}
   - {fileID: 909295232}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -1.968, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &848492077
 GameObject:
   m_ObjectHideFlags: 0
@@ -8660,7 +8660,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149603880273}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 45
   m_Drag: 1.5
   m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}

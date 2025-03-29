@@ -3,7 +3,12 @@ using UnityEngine;
 public class GravityManipulator : MonoBehaviour
 {
     public float rotationSpeed = 90f; 
-    private Vector3 gravityDirection = Vector3.down; 
+    private Vector3 gravityDirection ; 
+
+    void Start()
+    {
+        gravityDirection = Physics.gravity.normalized;
+    }
 
     void Update()
     {
@@ -31,9 +36,9 @@ public class GravityManipulator : MonoBehaviour
         }
 
         
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        transform.rotation = targetRotation;
 
         
-        Physics.gravity = gravityDirection * 9.81f;
+        
     }
 }
