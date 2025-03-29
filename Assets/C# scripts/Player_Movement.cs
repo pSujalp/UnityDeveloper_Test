@@ -7,6 +7,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private float rotationSpeed = 2.0f; 
 
+    [SerializeField] float aligningSpeed = 6.5f; 
     [SerializeField] GameObject camera;
 
 
@@ -61,7 +62,7 @@ public class Player_Movement : MonoBehaviour
     {
         Vector3 gravityUp = -Physics.gravity.normalized;
         Quaternion targetRotation = Quaternion.LookRotation(transform.forward, gravityUp);
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * 6.5f));
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * aligningSpeed));
     }
 
     private void OnCollisionEnter(Collision collision)
