@@ -9170,7 +9170,7 @@ MonoBehaviour:
   speed: 5
   jumpForce: 10
   rotationSpeed: 2
-  aligningSpeed: 12
+  aligningSpeed: 9.5
   camera: {fileID: 330585543}
 --- !u!136 &919132149603880276
 CapsuleCollider:
@@ -9203,7 +9203,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149603880273}
   serializedVersion: 4
-  m_Mass: 5
+  m_Mass: 10
   m_Drag: 1.5
   m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9217,7 +9217,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80

@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GravityManipulator : MonoBehaviour
 {
-    public float rotationSpeed = 90f; 
+    [SerializeField] float rotationSpeed = 90f; 
     private Vector3 gravityDirection ; 
 
     void Start()
@@ -34,10 +35,8 @@ public class GravityManipulator : MonoBehaviour
             targetRotation *= Quaternion.Euler(-90, 0, 0); 
             gravityDirection = -transform.forward;
         }
-
         
         transform.rotation = targetRotation;
-
         
         
     }

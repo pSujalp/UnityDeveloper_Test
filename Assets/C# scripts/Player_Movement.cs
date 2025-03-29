@@ -21,7 +21,8 @@ public class Player_Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        rb.useGravity = false;
+        
+       
     }
 
     void Update()
