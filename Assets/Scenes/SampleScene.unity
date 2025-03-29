@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 585495289}
+  gameManager: {fileID: 330585549}
 --- !u!1 &69276971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,6 +1436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 585495289}
+  gameManager: {fileID: 330585549}
 --- !u!65 &317212612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2942,6 +2944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 585495289}
+  gameManager: {fileID: 330585549}
 --- !u!1 &624014555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3663,6 +3666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 585495289}
+  gameManager: {fileID: 330585549}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5595,6 +5599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 585495289}
+  gameManager: {fileID: 330585549}
 --- !u!1 &1218137102
 GameObject:
   m_ObjectHideFlags: 0
@@ -6310,6 +6315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 585495289}
+  gameManager: {fileID: 330585549}
 --- !u!65 &1387779039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7630,6 +7636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMeshPro: {fileID: 585495289}
+  gameManager: {fileID: 330585549}
 --- !u!1 &1713542386
 GameObject:
   m_ObjectHideFlags: 0
@@ -9163,7 +9170,7 @@ MonoBehaviour:
   speed: 5
   jumpForce: 10
   rotationSpeed: 2
-  aligningSpeed: 18
+  aligningSpeed: 12
   camera: {fileID: 330585543}
 --- !u!136 &919132149603880276
 CapsuleCollider:
@@ -9196,7 +9203,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149603880273}
   serializedVersion: 4
-  m_Mass: 45
+  m_Mass: 5
   m_Drag: 1.5
   m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}

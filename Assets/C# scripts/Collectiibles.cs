@@ -12,12 +12,22 @@ public class Collectiible : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI textMeshPro;
 
+    [SerializeField] GameManager gameManager;
+
     void Start()
     {
         collectibleCount=0;
         OnValidate();
         Debug.Log("Total collectibles: " + totalCollectibles);
         textMeshPro.text = "Collectibles: " + collectibleCount + "/" + totalCollectibles;
+        if (gameManager == null)
+        {
+            
+            if (gameManager == null)
+            {
+            Debug.LogError("GameManager not found in the scene!");
+            }
+        }
         
     }
  
@@ -29,7 +39,7 @@ public class Collectiible : MonoBehaviour
     }
     // Update is called once per frame
 
-    void LevelRe()
+    public void LevelRe()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -43,8 +53,11 @@ public class Collectiible : MonoBehaviour
             {
                 Debug.Log("All collectibles collected!");
                 textMeshPro.text = "All collectibles collected! Level Restarting in 5 seconds";
+                gameManager.StopTimer();
                 textMeshPro.color = Color.green;
                 Invoke(nameof(LevelRe),5f);
+                gameManager.StartCoroutine(gameManager.StopTimer());
+                textMeshPro.color = Color.green;
             }
             else
             {
@@ -52,6 +65,7 @@ public class Collectiible : MonoBehaviour
                 ToBeTriggeredOnce = false;
                 textMeshPro.text = "Collectibles: " + collectibleCount + "/" + totalCollectibles;
                 Debug.Log("Collectible collected! Total: " + collectibleCount + "/" + totalCollectibles);
+                
                
             }
             Destroy(gameObject);
